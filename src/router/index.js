@@ -2,18 +2,35 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Login from "../views/Login";
 import Manage from "../views/Manage";
+import Service1 from "../views/Service1";
+import Service2 from "../views/Service2";
+import Register from "../views/Register";
+
+import NotFound from "../views/NotFound";
 
 Vue.use(VueRouter);
 
   const routes = [
-    {path: '/', redirect:'/login'},
-    {path: '/login',name:'login',component:Login},
-    {path:'/manage',name:'manage',component:Manage}
+      {path: '/', redirect:'/login'},
+      {path: '/login',name:'login',component:Login},
+      {path: '/register',name: 'register',component: Register},
+      {
+          path:'/manage',
+          component:Manage,
+          children:[
+              //配置二级路由
+              {path:'/',redirect:'/manage/service1'},
+              {path:'service1',component:Service1},
+              {path:'service2',component:Service2}
+          ]
+      },
+      {path:'*',component: NotFound}
 
   ];
 
 const router = new VueRouter({
-  routes
+  routes,
+    mode:'history'
 });
 
 export default router

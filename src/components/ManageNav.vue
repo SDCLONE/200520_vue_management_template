@@ -1,7 +1,7 @@
 <template>
     <div>
         <el-menu
-                default-active="/service1"
+                default-active="/manage/service1"
                 class="management-navi-vertical"
                 @select="handleSelect"
                 :router="true"
@@ -13,25 +13,25 @@
                     <i class="el-icon-location"></i>
                     <span>任务一</span>
                 </template>
-                <el-menu-item index="/service1">选项一</el-menu-item>
-                <el-menu-item index="/service2">选项二</el-menu-item>
+                <el-menu-item index="/manage/service1">选项一</el-menu-item>
+                <el-menu-item index="/manage/service2">选项二</el-menu-item>
             </el-submenu>
             <el-submenu index="2">
                 <template slot="title">
                     <i class="el-icon-location"></i>
                     <span>任务二</span>
                 </template>
-                <el-menu-item index="/func1">选项一</el-menu-item>
-                <el-menu-item index="/func2">选购香儿</el-menu-item>
-                <el-menu-item index="/func3">任务监控</el-menu-item>
+                <el-menu-item index="/manage/func1">选项一</el-menu-item>
+                <el-menu-item index="/manage/func2">选购香儿</el-menu-item>
+                <el-menu-item index="/manage/func3">任务监控</el-menu-item>
             </el-submenu>
             <el-submenu index="3">
                 <template slot="title">
                     <i class="el-icon-location"></i>
                     <span>个人中心</span>
                 </template>
-                <el-menu-item index="/user-list">用户列表</el-menu-item>
-                <el-menu-item index="/personal-info">个人信息</el-menu-item>
+                <el-menu-item index="/manage/item1">用户列表</el-menu-item>
+                <el-menu-item index="/manage/item2">个人信息</el-menu-item>
             </el-submenu>
         </el-menu>
     </div>

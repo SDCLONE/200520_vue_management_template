@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="#app">
         <el-container>
             <el-header>
                 <AllHead/>
@@ -12,11 +12,12 @@
                     </el-aside>
                     <el-main>
                         <el-scrollbar>
-                            <div id="testBox">
-                                <h3>This is management page!! Admin:{{this.$store.state.adminName}}</h3>
-                                <el-button @click="handleLogout">log out</el-button>
-                            </div>
+<!--                            <div id="testBox">-->
+<!--                                <h3>This is management page!! Admin:{{this.$store.state.adminName}}</h3>-->
+<!--                                <el-button @click="handleLogout">log out</el-button>-->
+<!--                            </div>-->
 
+                            <router-view/>
                         </el-scrollbar>
 
                     </el-main>
@@ -28,29 +29,37 @@
 <script>
     import AllHead from "../components/AllHead";
     import ManageNav from "../components/ManageNav";
+    import axios from 'axios';
+    import qs from 'querystring';
+    axios.defaults.withCredentials=true;
 
     export default {
         name: "Manage",
         components:{ManageNav, AllHead},
-        methods:{
-            handleLogout(){
-                console.log("点击了退出登录");
-                this.$store.state.adminName='';
-                this.$router.push({path:'/login'});
-            }
-        },
         mounted() {
             //TODO 先判断是否登录，否则直接跳转到登录界面
-            if (this.$store.state.adminName===''){
-                alert("请先登录");
-                this.$router.push({path:'/login'});
-            }
+            axios({
+                method:'get',
+                url:'http://localhost:7770/admin/getUsernameBySession'
+            }).then(res=>{
+                console.log("这个是页面加载完毕的res",res);
+                //session中有登录信息
+                if (res.data.status===0){
+                    this.$store.state.adminName=res.data.data;
+                }
+                //session中没有登录信息
+                else{
+                    this.$store.state.adminName='';
+                    this.$router.push({path:'/login'})
+                }
+            })
 
         }
     }
 </script>
 
 <style scoped>
+
     .el-container:first-child{
         /*border: 1px solid #000;*/
         /*height: 800px;*/
@@ -94,6 +103,9 @@
     .el-main ::-webkit-scrollbar{
         display: none;
     }
+    .el-aside ::-webkit-scrollbar{
+        display: none;
+    }
     /*
     IE  Edge这样关闭滚动条
      */
@@ -101,8 +113,8 @@
         -ms-overflow-style: none;
     }
 
-    #testBox{
-        /*width: 1200px;*/
-        height: 1200px;
-    }
+    /*#testBox{*/
+    /*    !*width: 1200px;*!*/
+    /*    height: 1200px;*/
+    /*}*/
 </style>

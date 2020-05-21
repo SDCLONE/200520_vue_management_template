@@ -27,13 +27,32 @@
 </template>
 
 <script>
+    import axios from "axios";
+
     export default {
         name: "AllHead",
         methods:{
             handleLogout(){
-                console.log("点击了退出登录");
-                this.$store.state.adminName='';
-                this.$router.push({path:'/login'});
+                axios({
+                    method:'get',
+                    url:'http://localhost:7770/admin/logout'
+                }).then(res=>{
+                    if (res.data.status===this.$store.state.SUCCESS){
+                        console.log("点击了退出登录");
+                        this.$store.state.adminName='';
+                        this.$router.push({path:'/login'});
+                    }
+                    else {
+                        this.$message({
+                            showClose:true,
+                            message:'退出登录失败',
+                            type:'error',
+                            duration:1500
+                        })
+                    }
+
+                })
+
             }
         }
     }

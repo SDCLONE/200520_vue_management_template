@@ -39,9 +39,11 @@ export default {
 <style>
 
 body{
+  width: 100%;
+  min-height: 100%;
   margin: 0;
   background-color: #f2f2f2;
-  overflow-y: hidden;
+  /*overflow-y: hidden;*/
 }
 
 

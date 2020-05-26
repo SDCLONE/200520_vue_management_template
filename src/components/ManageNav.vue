@@ -1,7 +1,7 @@
 <template>
     <div>
         <el-menu
-                default-active="/manage/service1"
+                :default-active="this.$store.state.activeMenu"
                 class="management-navi-vertical"
                 @select="handleSelect"
                 :router="true"

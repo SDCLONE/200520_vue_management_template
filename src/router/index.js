@@ -20,8 +20,8 @@ Vue.use(VueRouter);
           children:[
               //配置二级路由
               {path:'/',redirect:'/manage/service1'},
-              {path:'service1',component:Service1},
-              {path:'service2',component:Service2}
+              {path:'service1',component:Service1,props:{activeMenu:'/manage/service1'}},
+              {path:'service2',component:Service2,props:{activeMenu:'/manage/service2'}}
           ]
       },
       {path:'*',component: NotFound}

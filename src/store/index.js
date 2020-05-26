@@ -6,6 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     adminName:'',
+    activeMenu:'/manage/service1',
 
     //用户状态码信息
     SUCCESS:0,

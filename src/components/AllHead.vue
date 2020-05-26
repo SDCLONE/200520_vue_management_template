@@ -35,7 +35,8 @@
             handleLogout(){
                 axios({
                     method:'get',
-                    url:'http://localhost:7770/admin/logout'
+                    // url:'http://localhost:7770/admin/logout',
+                    url:'http://localhost:9000/api/admin/logout'
                 }).then(res=>{
                     if (res.data.status===this.$store.state.SUCCESS){
                         console.log("点击了退出登录");

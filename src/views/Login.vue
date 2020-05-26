@@ -235,7 +235,8 @@
                         //连接服务器进行表单验证
                         axios({
                             method:'post',
-                            url:'http://localhost:7770/admin/login',
+                            // url:'http://localhost:7770/admin/login',
+                            url:'http://localhost:9000/api/admin/login',
                             data:qs.stringify(this.loginForm)
                         }).then(res=>{
                             console.log(res);
@@ -280,11 +281,12 @@
                 alert("用户名或密码找回")
             }
         },
-        mounted() {
+        beforeCreate() {
             //TODO 先判断是否登录，如果登录直接跳转到管理界面
             axios({
                 method:'get',
-                url:'http://localhost:7770/admin/getUsernameBySession'
+                // url:'http://localhost:7770/admin/getUsernameBySession',
+                url:'http://localhost:9000/api/admin/getUsernameBySession'
             }).then(res=>{
                 console.log("这个是页面加载完毕的res",res);
                 //session中有登录信息
@@ -297,7 +299,26 @@
                     this.$store.state.adminName='';
                 }
             })
-        }
+        },
+        // mounted() {
+        //     //TODO 先判断是否登录，如果登录直接跳转到管理界面
+        //     axios({
+        //         method:'get',
+        //         // url:'http://localhost:7770/admin/getUsernameBySession',
+        //         url:'http://localhost:9000/api/admin/getUsernameBySession'
+        //     }).then(res=>{
+        //         console.log("这个是页面加载完毕的res",res);
+        //         //session中有登录信息
+        //         if (res.data.status===0){
+        //             this.$store.state.adminName=res.data.data;
+        //             this.$router.push({path:'/manage'})
+        //         }
+        //         //session中没有登录信息
+        //         else{
+        //             this.$store.state.adminName='';
+        //         }
+        //     })
+        // }
     }
 </script>
 

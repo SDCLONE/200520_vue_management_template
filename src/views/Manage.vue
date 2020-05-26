@@ -52,16 +52,12 @@
     export default {
         name: "Manage",
         components:{ManageNav, AllHead},
-        mounted() {
-            //渲染左半部分导航栏滚动条
-            let left_nav_height = document.getElementsByClassName('left-nav')[0].clientHeight
-            console.log(left_nav_height);
-            document.getElementsByClassName('left-nav-content')[0].style.height = (left_nav_height-60)+'px';
-
+        beforeCreate() {
             //TODO 先判断是否登录，否则直接跳转到登录界面
             axios({
                 method:'get',
-                url:'http://localhost:7770/admin/getUsernameBySession'
+                // url:'http://localhost:7770/admin/getUsernameBySession',
+                url:'http://localhost:9000/api/admin/getUsernameBySession'
             }).then(res=>{
                 console.log("这个是页面加载完毕的res",res);
                 //session中有登录信息
@@ -74,6 +70,32 @@
                     this.$router.push({path:'/login'})
                 }
             })
+        },
+        mounted() {
+            //渲染左半部分导航栏滚动条
+            let left_nav_height = document.getElementsByClassName('left-nav')[0].clientHeight
+            console.log(left_nav_height);
+            document.getElementsByClassName('left-nav-content')[0].style.height = (left_nav_height-60)+'px';
+
+
+
+            // //TODO 先判断是否登录，否则直接跳转到登录界面
+            // axios({
+            //     method:'get',
+            //     // url:'http://localhost:7770/admin/getUsernameBySession',
+            //     url:'http://localhost:9000/api/admin/getUsernameBySession'
+            // }).then(res=>{
+            //     console.log("这个是页面加载完毕的res",res);
+            //     //session中有登录信息
+            //     if (res.data.status===0){
+            //         this.$store.state.adminName=res.data.data;
+            //     }
+            //     //session中没有登录信息
+            //     else{
+            //         this.$store.state.adminName='';
+            //         this.$router.push({path:'/login'})
+            //     }
+            // })
 
         }
     }

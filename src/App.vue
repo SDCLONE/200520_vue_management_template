@@ -37,13 +37,16 @@ export default {
 </script>
 
 <style>
-
+  html{
+    height: 100%;
+  }
 body{
   width: 100%;
   min-height: 100%;
   margin: 0;
   background-color: #f2f2f2;
   /*overflow-y: hidden;*/
+  position: relative;
 }
 
 

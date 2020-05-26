@@ -315,45 +315,43 @@
     .login-main{
         width: 100%;
         min-height: 300px;
+        /*height: 1000px;*/
         padding-bottom: 120px;
-        border: 2px solid green;
-        margin-top: 60px;
+        /*margin-top: 60px;*/
     }
 
 
 
     .platform-description{
         width: 400px;
-        margin: 160px 20%;
+        margin: 220px 20%;
     }
 
     .login-box-card{
         width:450px;
         font-size: 16px;
-        margin: 120px 30px;
+        margin: 180px 30px;
     }
     .form-title{
         font-size: 20px;
         line-height: 25px;
         margin-bottom: 20px;
-        /*border: 1px solid #000;*/
+
     }
     .login-fail-hint{
         margin-bottom: 20px;
         font-size: 12px;
         line-height: 25px;
-        /*border: 1px solid #000;*/
+
         color: #F56C6C;
     }
     .footer{
-        /*width: 100%;*/
-        border: 1px solid #000;
         height: 120px;
         position: absolute;
         left: 0;
         bottom: 0;
         width: 100%;
-        /*background-color: #;*/
+
     }
 
 </style>

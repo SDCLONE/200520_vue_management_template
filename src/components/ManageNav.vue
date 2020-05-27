@@ -33,6 +33,16 @@
                 <el-menu-item index="/manage/item1">用户列表</el-menu-item>
                 <el-menu-item index="/manage/item2">个人信息</el-menu-item>
             </el-submenu>
+            <el-submenu index="4">
+                <template slot="title">
+                    <i class="el-icon-location"></i>
+                    <span>任务四</span>
+                </template>
+                <el-menu-item index="/manage/item3">DFDFDF</el-menu-item>
+                <el-menu-item index="/manage/item4">DFDFDF</el-menu-item>
+                <el-menu-item index="/manage/item3">DFDFDF</el-menu-item>
+                <el-menu-item index="/manage/item4">DFDFDF</el-menu-item>
+            </el-submenu>
         </el-menu>
     </div>
 

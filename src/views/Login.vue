@@ -44,10 +44,11 @@
             </el-col>
         </section>
         <footer class="footer">
-            <div style="width: 90%; margin: 0 auto">
-                <el-divider></el-divider>
-                <span>© 2009-2019 Aliyun.com 版权所有 浙ICP备12022327号 增值电信业务经营许可证： 浙B2-20080101</span>
-            </div>
+<!--            <div style="width: 90%; margin: 0 auto">-->
+<!--                <el-divider></el-divider>-->
+<!--                <span>© 2009-2019 Aliyun.com 版权所有 浙ICP备12022327号 增值电信业务经营许可证： 浙B2-20080101</span>-->
+<!--            </div>-->
+            <AllFooter/>
         </footer>
 <!--        <el-container>-->
 <!--            <el-header>-->
@@ -204,12 +205,13 @@
 <script>
     import AllHead from "../components/AllHead";
     import axios from "axios";
-    import qs from "querystring";   //当发送post请求需要用到
+    import qs from "querystring";
+    import AllFooter from "../components/AllFooter";   //当发送post请求需要用到
     axios.defaults.withCredentials=true;    //发送请求携带session信息
 
     export default {
         name: "Login",
-        components: {AllHead},
+        components: {AllFooter, AllHead},
         data(){
             return{
                 hintStatus:false,
@@ -275,7 +277,8 @@
                 })
             },
             doRegister(){
-                alert("注册")
+                // 点击跳转注册
+                this.$router.push({path:'/register'});
             },
             doLoginHelp(){
                 alert("用户名或密码找回")

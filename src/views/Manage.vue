@@ -15,30 +15,6 @@
         </div>
 
 
-
-
-<!--            <el-header>-->
-<!--                <AllHead/>-->
-<!--            </el-header>-->
-<!--                <el-container class="main">-->
-<!--                    <el-aside width="200px">-->
-<!--                        <el-scrollbar>-->
-<!--                            <ManageNav/>-->
-<!--                        </el-scrollbar>-->
-<!--                    </el-aside>-->
-<!--                    <el-main>-->
-<!--                        <el-scrollbar>-->
-<!--&lt;!&ndash;                            <div id="testBox">&ndash;&gt;-->
-<!--&lt;!&ndash;                                <h3>This is management page!! Admin:{{this.$store.state.adminName}}</h3>&ndash;&gt;-->
-<!--&lt;!&ndash;                                <el-button @click="handleLogout">log out</el-button>&ndash;&gt;-->
-<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
-
-<!--                            <router-view/>-->
-<!--                        </el-scrollbar>-->
-
-<!--                    </el-main>-->
-<!--                </el-container>-->
-
     </div>
 </template>
 

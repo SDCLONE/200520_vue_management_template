@@ -228,9 +228,8 @@
                             }
                             //验证码正确
                             else {
-                                this.$message.success("注册成功");
-                                // this.$store.state.registerCloseFlag=0;
-                                // this.$store.state.registerFormVisible=false;
+                                // this.$message.success("注册成功");
+                                this.$router.push({path:'/register/completion'});
                             }
                         });
                         return false;
@@ -246,6 +245,9 @@
             },
             //获取邮箱验证码
             getVerifyCode(){
+                //首先清空上一个弹框
+                this.$notify.closeAll();
+                //再进行判断
                 this.$refs.registerForm.validateField('email',err=>{
                     //邮箱验证通过
                     if (err===''){

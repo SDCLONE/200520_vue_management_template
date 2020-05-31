@@ -12,7 +12,7 @@
             </el-col>
             <el-col :span="12">
                 <el-card class="login-box-card" shadow="always">
-                    <el-form ref="loginForm" hide-required-asterisk :rules="rules" :model="loginForm" label-width="60px">
+                    <el-form ref="loginForm" hide-required-asterisk :rules="rules" :model="loginForm" label-width="60px" >
                         <el-row>
                             <el-col :span="6" class="form-title">
                                 密码登录
@@ -24,16 +24,16 @@
 
                         <el-form-item label="用户名" prop="username">
                             <el-col :span="21">
-                                <el-input v-model="loginForm.username"></el-input>
+                                <el-input v-model="loginForm.username"  @keyup.enter.native="submitLogin('loginForm')"></el-input>
                             </el-col>
                         </el-form-item>
                         <el-form-item label="密码" prop="password">
                             <el-col :span="21">
-                                <el-input type="password" v-model="loginForm.password"></el-input>
+                                <el-input type="password" v-model="loginForm.password" @keyup.enter.native="submitLogin('loginForm')"></el-input>
                             </el-col>
                         </el-form-item>
                         <el-form-item>
-                            <el-button type="primary" @click="submitLogin('loginForm')" >登录</el-button>
+                            <el-button type="primary" @click="submitLogin('loginForm')">登录</el-button>
                             <el-button @click="doRegister">注册</el-button>
                             <el-button type="text" @click="doLoginHelp">忘记用户名或密码？</el-button>
                         </el-form-item>
@@ -44,10 +44,6 @@
             </el-col>
         </section>
         <footer class="footer">
-<!--            <div style="width: 90%; margin: 0 auto">-->
-<!--                <el-divider></el-divider>-->
-<!--                <span>© 2009-2019 Aliyun.com 版权所有 浙ICP备12022327号 增值电信业务经营许可证： 浙B2-20080101</span>-->
-<!--            </div>-->
             <AllFooter/>
         </footer>
 <!--        <el-container>-->

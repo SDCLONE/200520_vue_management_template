@@ -7,6 +7,7 @@ import Service2 from "../views/Service2";
 import Register from "../views/Register";
 
 import NotFound from "../views/NotFound";
+import RegisterCompletion from "../views/RegisterCompletion";
 
 Vue.use(VueRouter);
 
@@ -14,6 +15,7 @@ Vue.use(VueRouter);
       {path: '/', redirect:'/login'},
       {path: '/login',name:'login',component:Login},
       {path: '/register',name: 'register',component: Register},
+      {path: '/register/completion',name: 'registerCompletion',component: RegisterCompletion},
       {
           path:'/manage',
           component:Manage,

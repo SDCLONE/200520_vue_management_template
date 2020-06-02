@@ -8,6 +8,7 @@ import Register from "../views/Register";
 
 import NotFound from "../views/NotFound";
 import RegisterCompletion from "../views/RegisterCompletion";
+import FindPassword from "../views/FindPassword";
 
 Vue.use(VueRouter);
 
@@ -16,6 +17,7 @@ Vue.use(VueRouter);
       {path: '/login',name:'login',component:Login},
       {path: '/register',name: 'register',component: Register},
       {path: '/register/completion',name: 'registerCompletion',component: RegisterCompletion},
+      {path: '/findPass',name: 'findPass',component: FindPassword},
       {
           path:'/manage',
           component:Manage,

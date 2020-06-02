@@ -4,12 +4,13 @@
 <!--        <h1>//TODO This is the registration page</h1>-->
         <header class="header">
 <!--            <AllHead/>-->
-            <el-col :span="10">
-                <i class="el-icon-platform-eleme"></i> Element
-            </el-col>
-            <el-col :span="13">
-                <el-link class="head-links" href="http://www.bupt.edu.cn" :underline="false">关于我们</el-link>
-            </el-col>
+<!--            <el-col :span="10">-->
+<!--                <i class="el-icon-platform-eleme"></i> Element-->
+<!--            </el-col>-->
+<!--            <el-col :span="13">-->
+<!--                <el-link class="head-links" href="http://www.bupt.edu.cn" :underline="false">关于我们</el-link>-->
+<!--            </el-col>-->
+            <AllHeadNoLogin/>
         </header>
         <section class="register-main">
 
@@ -78,10 +79,11 @@
 
     import axios from 'axios';
     import qs from 'querystring';
+    import AllHeadNoLogin from "../components/AllHeadNoLogin";
     axios.defaults.withCredentials=true;
     export default {
         name: "Register",
-        components: {AllFooter, AllHead},
+        components: {AllHeadNoLogin, AllFooter, AllHead},
         data(){
             //自定义校验规则
             //最后成功必须要加上callback()否则会一直无法验证成功
@@ -298,12 +300,12 @@
         top: 0;
         left: 0;
         height: 60px;
-        line-height: 60px;
+        /*line-height: 60px;*/
         z-index: 999;
         width: 100%;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
-        background-color: #fff;
-        padding: 0 20px;
+        /*box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);*/
+        /*background-color: #fff;*/
+        /*padding: 0 20px;*/
     }
 
     .header .el-col{

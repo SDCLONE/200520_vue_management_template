@@ -1,12 +1,13 @@
 <template>
     <div>
         <header class="header">
-            <el-col :span="10">
-                <i  class="el-icon-platform-eleme"></i> Element
-            </el-col>
-            <el-col :span="13">
-                <el-link class="head-links" href="http://www.bupt.edu.cn" :underline="false">关于我们</el-link>
-            </el-col>
+<!--            <el-col :span="10">-->
+<!--                <i  class="el-icon-platform-eleme"></i> Element-->
+<!--            </el-col>-->
+<!--            <el-col :span="13">-->
+<!--                <el-link class="head-links" href="http://www.bupt.edu.cn" :underline="false">关于我们</el-link>-->
+<!--            </el-col>-->
+            <AllHeadNoLogin/>
         </header>
         <section class="main-container">
             <div class="success-info-box">
@@ -28,9 +29,10 @@
 <script>
     import AllHead from "../components/AllHead";
     import AllFooter from "../components/AllFooter";
+    import AllHeadNoLogin from "../components/AllHeadNoLogin";
     export default {
         name: "RegisterCompletion",
-        components: {AllFooter, AllHead},
+        components: {AllHeadNoLogin, AllFooter, AllHead},
         methods:{
             toLogin(){
                 this.$router.push({path:'/login'});
@@ -45,12 +47,12 @@
         top: 0;
         left: 0;
         height: 60px;
-        line-height: 60px;
+        /*line-height: 60px;*/
         z-index: 999;
         width: 100%;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
-        background-color: #fff;
-        padding: 0 20px;
+        /*box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);*/
+        /*background-color: #fff;*/
+        /*padding: 0 20px;*/
     }
     .header .el-col{
         font-size: 32px;

@@ -277,7 +277,8 @@
                 this.$router.push({path:'/register'});
             },
             doLoginHelp(){
-                alert("用户名或密码找回")
+                // alert("用户名或密码找回")
+                this.$router.push({path:'/findPass'});
             }
         },
         beforeCreate() {

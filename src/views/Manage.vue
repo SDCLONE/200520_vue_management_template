@@ -131,7 +131,8 @@
     .main-content{
         margin-left: 200px;
         min-height: 400px;
-        margin-top: 60px;
+        padding-top: 60px;
+        padding-bottom: 60px;
         /*border: 1px solid #000;*/
 
     }

@@ -8,7 +8,12 @@ export default new Vuex.Store({
         adminName: '',
         activeMenu: '/manage/service1',
 
+        //表示找回密码步骤
         findPassStep: 0,
+        //表示邮箱对应的账号
+        findPassAccounts: [],
+        //表示需要修改的账号
+        findPassAdmin:"",
 
         //用户状态码信息
         SUCCESS: 0,
@@ -24,7 +29,15 @@ export default new Vuex.Store({
     },
     mutations: {
         NEXTSTEP(state) {
-            state.findPassStep = (state.findPassStep + 1) % 4;
+            if (state.findPassStep++ > 2) {
+                state.findPassStep = 0;
+            }
+        },
+        PREVIOUSSTEP(state){
+            state.findPassStep--;
+        },
+        RESETSTEP(state){
+            state.findPassStep = 0;
         }
     },
     actions: {},

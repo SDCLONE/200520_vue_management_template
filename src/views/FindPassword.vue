@@ -10,12 +10,12 @@
                     <el-step title="输入邮箱"></el-step>
                     <el-step title="选择对应账号"></el-step>
                     <el-step title="输入新密码"></el-step>
-                    <el-step title="完成"></el-step>
+<!--                    <el-step title="完成"></el-step>-->
                 </el-steps>
             </div>
             <div class="operation-box">
                 <el-row class="header-container">
-                    <el-col :offset="1" :span="15" class="form-header">
+                    <el-col :offset="0" :span="15" class="form-header">
                         {{formTitles[this.$store.state.findPassStep]}}
                     </el-col>
                     <el-col :span="8" class="back-login-link">
@@ -23,11 +23,22 @@
                     </el-col>
                 </el-row>
 
-                <div v-if="this.$store.state.findPassStep===0">
+                <div v-if="this.$store.state.findPassStep === 0">
                     <FindPassEmailForm/>
                 </div>
+                <div v-else-if="this.$store.state.findPassStep === 1">
+<!--                    <h1>哈哈哈哈哈</h1>-->
+<!--                    <h1 v-for="acc in this.$store.state.findPassAccounts" :key="acc.username">-->
+<!--                        {{acc.username}}-->
+<!--                    </h1>-->
+                    <FindPassSelectAccount/>
+                </div>
+                <div v-else-if="this.$store.state.findPassStep === 2">
+<!--                    <h1>输入确认密码</h1>-->
+                    <FindPassUpdatePwd/>
+                </div>
                 <div v-else>
-                    <h1>哈哈哈哈哈</h1>
+                    <FindPassSuccess/>
                 </div>
 <!--                <el-form -->
 <!--                        ref="enterEmailForm"-->
@@ -67,10 +78,15 @@
     import AllFooter from "../components/AllFooter";
     import axios from "axios";
     import FindPassEmailForm from "../components/FindPassEmailForm";
+    import FindPassSelectAccount from "../components/FindPassSelectAccount";
+    import FindPassUpdatePwd from "../components/FindPassUpdatePwd";
+    import FindPassSuccess from "../components/FindPassSuccess";
 
     export default {
         name: "FindPassword",
-        components: {FindPassEmailForm, AllFooter, AllHeadNoLogin},
+        components: {
+            FindPassSuccess,
+            FindPassUpdatePwd, FindPassSelectAccount, FindPassEmailForm, AllFooter, AllHeadNoLogin},
         data() {
             let validatePass = (rule, value, callback) => {
                 if (value === '') {
@@ -153,7 +169,10 @@
         },
         methods:{
             backToLogin(){
-                this.$router.push({path:'/login'})
+                //重置步骤条
+                this.$store.commit('RESETSTEP');
+                //跳转至登录界面
+                this.$router.push({path:'/login'});
             }
             // //获取邮箱验证码
             // getVerifyCode(){
@@ -237,8 +256,8 @@
     .header-container{
         margin-top: 0;
         margin-bottom: 20px;
-        height: 40px;
-        line-height: 40px;
+        height: 30px;
+        line-height: 30px;
     }
 
     .form-header{

@@ -1,11 +1,12 @@
 <template>
     <div id="app">
         <nav>
-            <el-col :span="10">
-                <i class="el-icon-platform-eleme"></i> Element
+            <el-col :span="10" >
+                <a class="icon-link" href="http://www.baidu.com"><i class="el-icon-platform-eleme"></i> Element</a>
             </el-col>
             <el-col :span="13">
                 <el-link class="head-links" href="http://www.bupt.edu.cn" :underline="false">关于我们</el-link>
+                <el-link class="head-links" href="http://localhost:8080" :underline="false">首页</el-link>
             </el-col>
         </nav>
     </div>
@@ -16,6 +17,7 @@
 
     export default {
         name: "AllHeadNoLogin",
+
 
     }
 </script>
@@ -36,6 +38,12 @@
     }
     nav .el-col:first-child{
         font-size: 32px;
+    }
+
+    .icon-link{
+        text-decoration: none;
+        color: black;
+        margin-left: 15px;
     }
     .head-links{
         float:right;

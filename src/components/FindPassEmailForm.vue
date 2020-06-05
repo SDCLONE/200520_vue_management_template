@@ -8,7 +8,7 @@
     >
         <el-form-item label="电子邮箱" prop="email" >
             <el-col :span="22" >
-                <el-input  v-model="enterEmailForm.email" placeholder="请输入邮箱" ></el-input>
+                <el-input  v-model="enterEmailForm.email" placeholder="请输入邮箱" autocomplete="on" ></el-input>
             </el-col>
         </el-form-item>
         <el-form-item label="邮箱验证码" prop="verifyCode" >
@@ -20,7 +20,7 @@
             </el-col>
         </el-form-item>
         <el-form-item>
-            <el-button type="primary" @click="handleSubmit('enterEmailForm')" >确认信息</el-button>
+            <el-button type="primary" @click="handleSubmit('enterEmailForm')" >下一步</el-button>
             <el-button @click="resetForm('enterEmailForm')">重置</el-button>
         </el-form-item>
     </el-form>
@@ -147,6 +147,9 @@
                             url:'http://localhost:9000/api/admin/findAdminsByEmail',
                             data:qs.stringify(data)
                         }).then(res=>{
+                            //首先清空上一个弹框
+                            this.$message.closeAll();
+
                             //验证码错误
                             if (res.data.status===this.$store.state.VERIFY_INCORRECT){
                                 this.$message.error(res.data.desc);
@@ -158,7 +161,8 @@
                             //验证码正确
                             else {
                                 // this.$message.success("注册成功");
-                                console.log(res.data);
+                                console.log(res);
+                                this.$store.state.findPassAccounts = res.data.data;
                                 this.$store.commit('NEXTSTEP');
                             }
                         });

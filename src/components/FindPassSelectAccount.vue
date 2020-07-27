@@ -8,7 +8,8 @@
             <div>我们找到与您的邮箱匹配的账号如下：</div>
             <el-form-item>
                 <el-radio-group v-model="selectAccForm.findPassAdmin">
-                    <div class="radio-container" v-for="(acc, index) in this.$store.state.findPassAccounts" :key="acc.username">
+                    <div class="radio-container" v-for="(acc, index) in this.$store.state.findPassAccounts"
+                         :key="acc.username">
                         <el-radio :label="acc.username"></el-radio>
                     </div>
                 </el-radio-group>
@@ -27,6 +28,9 @@
 </template>
 
 <script>
+    import axios from "axios";
+    import qs from "querystring";
+
     export default {
         name: "FindPassSelectAccount",
         data() {
@@ -39,15 +43,27 @@
         },
         methods: {
 
-            previousStep(){
+            previousStep() {
                 this.$store.commit('PREVIOUSSTEP');
             },
-            handleSubmit(){
+            handleSubmit() {
                 //将要修改的账户存入store
                 this.$store.state.findPassAdmin = this.selectAccForm.findPassAdmin;
-                //进入下一步
-                console.log(this.$store.state.findPassAdmin);
-                this.$store.commit('NEXTSTEP');
+                //设置密码修改权限标志
+                let data = {
+                    username: this.selectAccForm.findPassAdmin
+                };
+                axios({
+                    method: 'post',
+                    url: 'http://localhost:9000/api/admin/setUpdatePassFlag',
+                    data: qs.stringify(data)
+                }).then(() => {
+                    //进入下一步
+                    console.log(this.$store.state.findPassAdmin);
+                    this.$store.commit('NEXTSTEP');
+                });
+
+
             }
 
         },

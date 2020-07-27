@@ -79,25 +79,7 @@
 
 <style scoped>
 
-    /*.el-container{*/
-    /*    !*border: 1px solid #000;*!*/
-    /*    !*height: 800px;*!*/
-    /*    width: 100%;*/
-    /*    height: 100%;*/
-    /*    margin-top: 60px;*/
-    /*}*/
-    /*.main{*/
-    /*    height: 700px;*/
-    /*    !*margin-top: 60px;*!*/
 
-    /*}*/
-
-    /*.el-header{*/
-    /*    z-index: 999;*/
-    /*    height: 60px;*/
-    /*    padding:0;*/
-    /*    width: 100%;*/
-    /*}*/
     .header{
         width: 100%;
         height: 60px;
@@ -114,6 +96,7 @@
         left: 0;
         /*border: 1px solid #000;*/
         background-color: #fff;
+        /*padding-top: 60px;*/
 
     }
     .left-nav-content{
@@ -136,15 +119,7 @@
         /*border: 1px solid #000;*/
 
     }
-    /*.el-aside{*/
-    /*    !*border: 1px solid red;*!*/
-    /*    !*height: 700px;*!*/
-    /*    background-color: #ffffff;*/
-    /*    !*box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04)*!*/
-    /*}*/
-    /*.el-main{*/
-    /*    padding: 0;*/
-    /*}*/
+
 
     /*是否开启element样式的横向滚动条*/
     .el-scrollbar .el-scrollbar__wrap{

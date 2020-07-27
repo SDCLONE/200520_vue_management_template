@@ -2,8 +2,8 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Login from "../views/Login";
 import Manage from "../views/Manage";
-import Service1 from "../views/Service1";
-import Service2 from "../views/Service2";
+import Service1 from "../views/services/Service1";
+import Service2 from "../views/services/Service2";
 import Register from "../views/Register";
 
 import NotFound from "../views/NotFound";
